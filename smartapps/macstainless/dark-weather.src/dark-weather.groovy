@@ -17,9 +17,9 @@ definition(
     author: "Aaron Crocco",
     description: "Use a virtual switch (best when combined with IFTTT weather monitoring) to trigger a mode change. Perfect for setting your house to a 'rain mode' so lights turn on during the day. V2.0",
     category: "Mode Magic",
-    iconUrl: "https://s3.amazonaws.com/smartapp-icons/Convenience/Cat-Convenience.png",
-    iconX2Url: "https://s3.amazonaws.com/smartapp-icons/Convenience/Cat-Convenience@2x.png",
-    iconX3Url: "https://s3.amazonaws.com/smartapp-icons/Convenience/Cat-Convenience@2x.png")
+    iconUrl: "https://raw.githubusercontent.com/macstainless/Dark-Weather/master/Dark_Weather.png",
+    iconX2Url: "https://raw.githubusercontent.com/macstainless/Dark-Weather/master/Dark_Weather.png",
+    iconX3Url: "https://raw.githubusercontent.com/macstainless/Dark-Weather/master/Dark_Weather.png")
 
 
 preferences {
