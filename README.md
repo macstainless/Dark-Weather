@@ -1,5 +1,5 @@
-# Dark-Weather
-A common issue I run into is having my lights work during the day if there's rain or snow. It's usually dark during these times and it's nice to have lights. That's where Dark Weather comes in.
+# Dark Weather
+A common issue is needing my lights on during the day if there's rain or snow. It's usually dark during these times and it's nice to have lights. That's where Dark Weather comes in.
 
 I released this app a few years ago but the platform security and requirements have changed a lot since then. Also, the old version relied on a weather sensor and most don't have that. As such, I've rewritten this app from the ground up.
 
