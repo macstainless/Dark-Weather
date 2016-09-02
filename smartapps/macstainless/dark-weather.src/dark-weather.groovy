@@ -17,7 +17,7 @@ definition(
     version: "2.1",
     namespace: "macstainless",
     author: "Aaron Crocco",
-    description: "Use a virtual switch (best when combined with IFTTT weather monitoring) to trigger a mode change. Perfect for setting your house to a 'rain mode' so lights turn on during the day. V2.0",
+    description: "Use a virtual switch (best when combined with IFTTT weather monitoring) to trigger a mode change. Perfect for setting your house to a 'rain mode' so lights turn on during the day. V2.1",
     category: "Mode Magic",
     iconUrl: "https://raw.githubusercontent.com/macstainless/Dark-Weather/master/Dark_Weather.png",
     iconX2Url: "https://raw.githubusercontent.com/macstainless/Dark-Weather/master/Dark_Weather.png",
