@@ -1,5 +1,6 @@
 /**
- *  Dark Weather (Version 2)
+ *  Dark Weather (Version 2.1)
+ *  Last update: September 1, 2016
  *
  *	This app monitors a switch state and will set the 
  *	house into a desired mode in order for the lights to work during the day.
@@ -13,6 +14,7 @@
  
 definition(
     name: "Dark Weather",
+    version: "2.1",
     namespace: "macstainless",
     author: "Aaron Crocco",
     description: "Use a virtual switch (best when combined with IFTTT weather monitoring) to trigger a mode change. Perfect for setting your house to a 'rain mode' so lights turn on during the day. V2.0",
@@ -23,8 +25,10 @@ definition(
 
 
 preferences {
-	section("App Setup (Version 2)") {}
-	
+    section("Version 2.1"){}
+    section() {
+    paragraph "BE SURE TO SET DARK WEATHER TO ONLY RUN IN DAYTIME AND RAIN MODES. IF YOU SET IT FOR ALL MODES IT WILL TAKE YOU OUT OF ANY EVENING OR NIGHT MODES."
+    }
     section("Choose a switch to trigger the change... "){
 		input "triggerSwitch", "capability.switch"
 	}
@@ -55,6 +59,7 @@ def updated() {
 def initialize() {
 
         subscribe(triggerSwitch, "switch", switchHandler)
+        runEvery5Minutes(scheduleCheck)
 }
 
 def switchHandler(evt) {
@@ -106,4 +111,28 @@ def weatherModeChange(evt) {
 			}        
         }
 	}
+}
+
+def scheduleCheck() {
+
+/* This code is called every 5 minutes via initialize.
+
+There is a condition that exists wherein there is overnight rain that continues into the day.
+When we switch to any "daytime" mode and the switch is already on, the triggering of the switch is missed
+and we don't enter rain mode.
+
+This code checks the switch state and if it's on but we are not in rain mode, we will make that change.
+*/
+
+log.debug "Checking mode and switch state."
+
+//Check current mode and if we aren't in rain mode AND the switch is already on, then trigger rain mode.
+
+log.debug "location.currentMode: ${location.currentMode}"
+if ( (location.currentMode != rainMode) && (triggerSwitch.currentSwitch == "on") ) {
+        log.debug "Switch is on but we are not rain mode. Executing mode change."
+        switchHandler("on") 
+    }
+else { log.debug "We do not need rain mode." }
+
 }
