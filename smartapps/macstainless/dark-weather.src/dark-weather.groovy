@@ -14,7 +14,7 @@
  
 definition(
     name: "Dark Weather",
-    version: "2.1",
+    version: "2.1.1",
     namespace: "macstainless",
     author: "Aaron Crocco",
     description: "Use a virtual switch (best when combined with IFTTT weather monitoring) to trigger a mode change. Perfect for setting your house to a 'rain mode' so lights turn on during the day. V2.1",
@@ -131,7 +131,7 @@ log.debug "Checking mode and switch state."
 log.debug "location.currentMode: ${location.currentMode}"
 if ( (location.currentMode != rainMode) && (triggerSwitch.currentSwitch == "on") ) {
         log.debug "Switch is on but we are not rain mode. Executing mode change."
-        switchHandler("on") 
+        weatherModeChange("wet") 
     }
 else { log.debug "We do not need rain mode." }
 
